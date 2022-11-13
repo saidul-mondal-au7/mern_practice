@@ -29,16 +29,15 @@ yargs.command({
         }
     },
     handler: function(argv){
-        console.log("Title ===",argv.title)
-        console.log("Body ===",argv.body)
+        notes.addNotes(argv.title, argv.body)
     }
 })
 
 yargs.command({
     command:'remove',
     describe: 'removing some notes.',
-    handler: function(){
-        console.log('removing!')
+    handler: function(argv){
+        notes.removeNotes(argv.title)
     }
 })
 
@@ -47,15 +46,15 @@ yargs.command({
     command:'list',
     describe: 'listing some notes.',
     handler: function(){
-        console.log('listing!')
+        notes.listNotes()
     }
 })
 // read
 yargs.command({
     command:'read',
     describe: 'reading some notes.',
-    handler: function(){
-        console.log('reading!')
+    handler: function(argv){
+        notes.readNotes(argv.title)
     }
 })
 
